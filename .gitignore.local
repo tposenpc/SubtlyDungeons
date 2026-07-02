@@ -1,0 +1,5 @@
+# Local patterns only. Git uses this only if you run:
+#   git config core.excludesFile .gitignore.local
+# Add paths you want ignored on this machine (e.g. run/, local paths).
+build.sh
+subtly_dungeons_*.jar
