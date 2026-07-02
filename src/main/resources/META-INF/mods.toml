@@ -1,0 +1,31 @@
+modLoader="javafml"
+loaderVersion="[47,)"
+license="LGPL-3.0-only"
+issueTrackerURL="https://github.com/bettskyrin/SubtlyDungeons/issues"
+showAsResourcePack=false
+
+[[mods]]
+modId="subtlyd"
+version="${file.jarVersion}"
+displayName="Subtly Dungeons"
+description='''
+Forge 1.20.1 port. Adds canon features from Dungeons and Legends. Vanilla parity, exploration, cohesive sequel feel.
+'''
+authors="Meander Studios"
+displayURL="https://github.com/bettskyrin/SubtlyDungeons"
+logoFile="assets/subtlyd/icon.png"
+displayTest="MATCH_VERSION"
+
+[[dependencies.subtlyd]]
+modId="forge"
+mandatory=true
+versionRange="[47,)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.subtlyd]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.20.1]"
+ordering="NONE"
+side="BOTH"

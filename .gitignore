@@ -28,9 +28,10 @@ bin/
 
 *.DS_Store
 
-# fabric
+# fabric / forge
 
 run/
+src/generated/
 
 # java
 
@@ -41,4 +42,9 @@ replay_*.log
 
 src/main/generated/
 
+<<<<<<< Updated upstream
 NOTES.*
+=======
+# local overrides (optional: git config core.excludesFile .gitignore.local)
+.gitignore.local
+>>>>>>> Stashed changes

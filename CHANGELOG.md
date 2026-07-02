@@ -4,7 +4,14 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 
+<<<<<<< Updated upstream
 ## [4.0 Magical Madness Update] - 6/16/26
+=======
+## [1.20.1-1.0.0] - Forge port scaffold (UNRELEASED)
+- Forge 1.20.1 build (Gradle 8.4, ForgeGradle). Original Fabric/MC 26.1 code preserved under `src/main/javaFabricRef/`. See PORTING.md.
+
+## [3.0 Wild Instincts Update] - UNRELEASED
+>>>>>>> Stashed changes
 ### New Features
 #### Enchantments
 - Added Occult Protection enchantment

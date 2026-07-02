@@ -1,22 +1,30 @@
 plugins {
-    id 'net.fabricmc.fabric-loom' version "${loom_version}"
+    id 'net.minecraftforge.gradle' version '[6.0,6.2)'
     id 'maven-publish'
 }
 
-version = project.mod_version
-group = project.maven_group
+version = mod_version
+group = maven_group
 
-base {
-    archivesName = project.archives_base_name
-}
+base { archivesName = archives_base_name }
 
-fabricApi {
-    configureDataGeneration {
-        client = true
+java.toolchain.languageVersion = JavaLanguageVersion.of(17)
+
+minecraft {
+    mappings channel: mappings_channel, version: mappings_version
+    runs {
+        client { workingDirectory project.file('run'); property 'forge.logging.console.level', 'debug'; mods { subtlyd { source sourceSets.main } } }
+        server { workingDirectory project.file('run'); property 'forge.logging.console.level', 'debug'; mods { subtlyd { source sourceSets.main } } }
+        data  { workingDirectory project.file('run'); property 'forge.logging.console.level', 'debug'; args '--mod', 'subtlyd', '--all', '--output', file('src/generated/resources/'); mods { subtlyd { source sourceSets.main } } }
     }
 }
 
+sourceSets.main.resources { srcDir 'src/generated/resources' }
+
+repositories { mavenCentral() }
+
 dependencies {
+<<<<<<< Updated upstream
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
 
     implementation "net.fabricmc:fabric-loader:${project.loader_version}"
@@ -51,17 +59,18 @@ java {
 
     sourceCompatibility = JavaVersion.VERSION_25
     targetCompatibility = JavaVersion.VERSION_25
+=======
+    minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+>>>>>>> Stashed changes
 }
 
 jar {
-    inputs.property "archivesName", project.base.archivesName
-
-    from("LICENSE") {
-        rename { "${it}_${inputs.properties.archivesName}"}
-    }
+    manifest { attributes(['Specification-Title': 'subtlyd', 'Specification-Vendor': 'Meander Studios', 'Specification-Version': '1', 'Implementation-Title': project.name, 'Implementation-Version': project.version, 'Implementation-Vendor': 'Meander Studios']) }
+    from('LICENSE') { rename { "${it}_${archives_base_name}" } }
 }
 
 publishing {
+<<<<<<< Updated upstream
     publications {
         create("mavenJava", MavenPublication) {
             artifactId = project.archives_base_name
@@ -83,3 +92,8 @@ sourceSets {
         }
     }
 }
+=======
+    publications { mavenJava(MavenPublication) { artifact jar } }
+    repositories { maven { url "file://${project.projectDir}/mcmodsrepo" } }
+}
+>>>>>>> Stashed changes
